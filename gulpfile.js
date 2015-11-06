@@ -20,13 +20,13 @@ var dependencies = [
 ];
 
 gulp.task('browserify', ['browserify-vendor'], function() {
-  return browserify('app/main.js')
+  return browserify('client/app/main.js')
     .external(dependencies)
     .transform(babelify)
     .bundle()
     .pipe(source('bundle.js'))
     .pipe(gulpif(production, streamify(uglify({ mangle: false }))))
-    .pipe(gulp.dest('public/js'));
+    .pipe(gulp.dest('client/public/js'));
 });
 
 /*
@@ -35,7 +35,7 @@ gulp.task('browserify', ['browserify-vendor'], function() {
  |--------------------------------------------------------------------------
  */
 gulp.task('browserify-watch', ['browserify-vendor'], function() {
-  var bundler = watchify(browserify('app/main.js', watchify.args));
+  var bundler = watchify(browserify('client/app/main.js', watchify.args));
   bundler.external(dependencies);
   bundler.transform(babelify);
   bundler.on('update', rebundle);
@@ -51,7 +51,7 @@ gulp.task('browserify-watch', ['browserify-vendor'], function() {
         gutil.log(gutil.colors.green('Finished rebundling in', (Date.now() - start) + 'ms.'));
       })
       .pipe(source('bundle.js'))
-      .pipe(gulp.dest('public/js/'));
+      .pipe(gulp.dest('client/public/js/'));
   }
 });
 
