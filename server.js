@@ -10,13 +10,14 @@ var app = express();
 var morgan = require('morgan');
 var parser = require('body-parser');
 var cors = require('cors');
+var path = require('path');
 var cookieParser = require('cookie-parser');
-// var routes = require('./server/routes.js');
+var serverRoutes = require('./server/routes.js');
 var mongoose = require('mongoose');
 var dbUrl = 'mongodb://localhost/richHomiePrep';
 var initServer = function() {
   // attaches all the routes to the server
-  // routes.setup(app);
+  serverRoutes.setup(app);
   var port = process.env.PORT || 3001;
   var server = app.listen(port);
   console.log("Express server listening on %d in %s mode", port, app.settings.env)
@@ -24,9 +25,9 @@ var initServer = function() {
 
 mongoose.connect(dbUrl);
 app.use(morgan('tiny'));
-app.use(express.static(__dirname + '../client/public'));
-app.use(parser.urlencoded({extended: true}));
 app.use(parser.json());
+app.use(parser.urlencoded({extended: false}));
+app.use(express.static(path.join(__dirname, 'client/public')));
 //React Router
 app.use(function(req, res) {
   Router.match({ routes: routes, location: req.url }, function(err, redirectLocation, renderProps) {
