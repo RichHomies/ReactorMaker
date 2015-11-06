@@ -2,7 +2,11 @@ var gulp = require('gulp');
 var gutil = require('gulp-util');
 var gulpif = require('gulp-if');
 var streamify = require('gulp-streamify');
+var autoprefixer = require('gulp-autoprefixer');
+var cssmin = require('gulp-cssmin');
 var less = require('gulp-less');
+var concat = require('gulp-concat');
+var plumber = require('gulp-plumber');
 var source = require('vinyl-source-stream');
 var babelify = require('babelify');
 var browserify = require('browserify');
@@ -19,6 +23,41 @@ var dependencies = [
   'underscore'
 ];
 
+/*
+ |--------------------------------------------------------------------------
+ | Combine all JS libraries into a single file for fewer HTTP requests.
+ |--------------------------------------------------------------------------
+ */
+gulp.task('vendor', function() {
+  return gulp.src([
+    'bower_components/jquery/dist/jquery.js',
+    'bower_components/bootstrap/dist/js/bootstrap.js',
+    'bower_components/magnific-popup/dist/jquery.magnific-popup.js',
+    'bower_components/toastr/toastr.js'
+  ]).pipe(concat('vendor.js'))
+    .pipe(gulpif(production, uglify({ mangle: false })))
+    .pipe(gulp.dest('client/public/js'));
+});
+
+/*
+ |--------------------------------------------------------------------------
+ | Compile third-party dependencies separately for faster performance.
+ |--------------------------------------------------------------------------
+ */
+gulp.task('browserify-vendor', function() {
+  return browserify()
+    .require(dependencies)
+    .bundle()
+    .pipe(source('vendor.bundle.js'))
+    .pipe(gulpif(production, streamify(uglify({ mangle: false }))))
+    .pipe(gulp.dest('client/public/js'));
+});
+
+/*
+ |--------------------------------------------------------------------------
+ | Compile only project files, excluding all third-party dependencies.
+ |--------------------------------------------------------------------------
+ */
 gulp.task('browserify', ['browserify-vendor'], function() {
   return browserify('client/app/main.js')
     .external(dependencies)
@@ -55,5 +94,6 @@ gulp.task('browserify-watch', ['browserify-vendor'], function() {
   }
 });
 
-gulp.task('default', ['browserify-watch']);
-gulp.task('build', ['browserify']);
+
+gulp.task('default', ['vendor', 'browserify-watch']);
+gulp.task('build', ['vendor', 'browserify']);
