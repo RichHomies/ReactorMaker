@@ -22,7 +22,7 @@ var initServer = function() {
   console.log("Express server listening on %d in %s mode", port, app.settings.env)
 }
 
-// mongoose.connect(dbUrl);
+mongoose.connect(dbUrl);
 app.use(morgan('tiny'));
 app.use(express.static(__dirname + '../client/public'));
 app.use(parser.urlencoded({extended: true}));
