@@ -1,4 +1,4 @@
 server/config.js
 node_modules
 bower_components/
-client/public/js
+client/public/js/
