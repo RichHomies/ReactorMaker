@@ -94,6 +94,18 @@ gulp.task('browserify-watch', ['browserify-vendor'], function() {
   }
 });
 
+gulp.task('styles', function() {
+  return gulp.src('client/app/stylesheets/main.less')
+    .pipe(plumber())
+    .pipe(less())
+    .pipe(autoprefixer())
+    .pipe(gulpif(production, cssmin()))
+    .pipe(gulp.dest('client/public/css'));
+});
 
-gulp.task('default', ['vendor', 'browserify-watch']);
-gulp.task('build', ['vendor', 'browserify']);
+gulp.task('watch', function() {
+  gulp.watch('client/app/stylesheets/**/*.less', ['styles']);
+});
+
+gulp.task('default', ['styles', 'vendor', 'browserify-watch', 'watch']);
+gulp.task('build', ['styles', 'vendor', 'browserify']);
