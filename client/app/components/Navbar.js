@@ -1,8 +1,8 @@
 import React from 'react';
 import {Link} from 'react-router';
 
-class Navbar extends React.Component {
-  render() {
+var Navbar = React.createClass({
+  render: function() {
     return (
       <nav className='navbar navbar-default navbar-static-top'>
         <div className='navbar-header'>
@@ -25,6 +25,7 @@ class Navbar extends React.Component {
       </nav>
     );
   }
-}
+})
+
 
 export default Navbar;
