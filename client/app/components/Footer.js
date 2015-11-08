@@ -1,8 +1,8 @@
 import React from 'react';
 import {Link} from 'react-router';
 
-class Footer extends React.Component {
-  render() {
+var Footer = React.createClass({
+  render: function() {
     return (
       <footer>
         <div className='container'>
@@ -21,6 +21,6 @@ class Footer extends React.Component {
       </footer>
     );
   }
-}
+})
 
 export default Footer;

@@ -2,7 +2,7 @@ var mongoose = require('mongoose');
 var clientModel = require('../db/db').clientModel;
 
 var saveToDb = function(req, res, next){
-  var client = req.body.client;
+  var client = req.body;
   var newClient = new clientModel({client: client});
   newClient.save(function(err, client){
     if(err){

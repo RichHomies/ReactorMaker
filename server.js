@@ -28,8 +28,9 @@ app.use(morgan('tiny'));
 app.use(parser.json());
 app.use(parser.urlencoded({extended: false}));
 app.use(express.static(path.join(__dirname, 'client/public')));
+
 //React Router
-app.use(function(req, res) {
+app.use(function(req, res, next) {
   Router.match({ routes: routes, location: req.url }, function(err, redirectLocation, renderProps) {
     if (err) {
       res.status(500).send(err.message)
@@ -40,7 +41,7 @@ app.use(function(req, res) {
       var page = swig.renderFile('client/views/index.html', { html: html });
       res.status(200).send(page);
     } else {
-      res.status(404).send('Page Not Found')
+      next();
     }
   });
 });

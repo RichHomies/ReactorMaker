@@ -3,8 +3,8 @@ import Navbar from './Navbar';
 import Footer from './Footer';
 
 
-class App extends React.Component {
-  render() {
+var App = React.createClass({
+  render: function() {
     return (
       <div>
         <Navbar />
@@ -13,6 +13,6 @@ class App extends React.Component {
       </div>
     );
   }
-}
+})
 
 export default App;
