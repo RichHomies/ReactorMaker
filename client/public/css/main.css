@@ -7356,6 +7356,10 @@ body {
   color: white;
   margin-top: 100px;
 }
+.copyright {
+  font-family: 'Open Sans', sans-serif;
+  font-weight: 300;
+}
 .shadow {
   z-index: 2;
 }
