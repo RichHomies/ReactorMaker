@@ -11,6 +11,6 @@ var clientSchema = new Schema({
 });
 
 module.exports = {
-  clientModel : mongoose.model('Project', clientSchema)
+  clientModel : mongoose.model('Clients', clientSchema)
 };
 
