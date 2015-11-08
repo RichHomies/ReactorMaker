@@ -1,7 +1,19 @@
 import React from 'react';
 
-class Home extends React.Component {
-  render() {
+var Home = React.createClass({
+  handleSubmit: function(e){
+    e.preventDefault();
+    var email = this.refs.email.value.trim();
+    console.log(email)
+    if (!email) {
+      return;
+    }
+    //TO DO: email regex, send to DB
+    this.refs.email.value = '';
+    return;
+
+  },
+  render: function() {
     return (
       <div className='container'>
         <div className='row'>
@@ -14,12 +26,12 @@ class Home extends React.Component {
           <h2 className='text-center'>Upon completion of our program, you will have the skills necessary to ace the intensive technical interview needed to get into Hack Reactor schools.</h2>
         </div>
         <div>
-          <h2 className="text-center">Enter your email for more information.</h2>
+          <h2 className="text-center">Enter your email to stay updated.</h2>
         </div>
         <div className='row'>
-          <form ref='searchForm' className='navbar-form navbar-center text-center animated'>
+          <form ref='searchForm' className='navbar-form navbar-center text-center animated' onSubmit={this.handleSubmit}>
             <div className='input-group input-group-lg'>
-              <input type='text' className='form-control' placeholder='Enter your email' />
+              <input type='text' className='form-control' placeholder='Enter your email' ref='email'/>
               <span className='input-group-btn'>
                 <button className='btn btn-default'><span className='glyphicon glyphicon-plus'></span></button>
               </span>
@@ -28,7 +40,8 @@ class Home extends React.Component {
         </div>
       </div>
     );
-  }
-}
+  }  
+});
+
 
 export default Home;
