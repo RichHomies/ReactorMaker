@@ -4,12 +4,25 @@ var Home = React.createClass({
   handleSubmit: function(e){
     e.preventDefault();
     var email = this.refs.email.value.trim();
-    console.log(email)
+    var data = {
+      email: email
+    }
     if (!email) {
       return;
     }
-    //TO DO: email regex, send to DB
-    this.refs.email.value = '';
+    //TO DO: email regex
+    $.ajax({
+      type: 'POST',
+      url: '/api/user',
+      data: data
+    })
+    .done(function(data) {
+      this.refs.email.value = '';
+    })
+    .fail(function(jqXhr) {
+      console.log('failed to register');
+      console.log(jqXhr)
+    });
     return;
 
   },
