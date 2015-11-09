@@ -7,12 +7,12 @@ var Footer = React.createClass({
       <footer className="shadow">
         <div className='container'>
           <div className='row'>
-            <div className='col-sm-5'>
+            <div className='col-sm-5 copyright'>
               <h3 className='lead'><strong>Information</strong> and <strong>Copyright</strong></h3>
-              <p>Powered by <strong>Node.js</strong>, <strong>MongoDB</strong> and <strong>React</strong> with Flux architecture and server-side rendering.</p>
+              <p>ReactorMaker is not affiliated with Hack Reactor. Site created by <strong>Zachary Lee</strong> and <strong>Joe Nayigiziki</strong>. Copyright © 2015 Zachary Lee. All Rights Reserved.</p>
             </div>
-            <div className='col-sm-7 hidden-xs'>
-              <h3 className='lead'><strong>Flex</strong> Ooh ooh ooh</h3>
+            <div className='col-sm-7 hidden-xs copyright'>
+              <h3 className='lead'>Site is still in development. Check back soon!</h3>
               <ul className='list-inline'>
               </ul>
             </div>

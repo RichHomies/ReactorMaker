@@ -17,9 +17,10 @@ var Home = React.createClass({
       return;
     }
     //TO DO: email regex
+    var productionIP = 'http://52.32.220.126/api/user';
     $.ajax({
       type: 'POST',
-      url: '/api/user',
+      url: '/api/user', //put production IP here?
       data: data
     })
     .done(function(data) {
