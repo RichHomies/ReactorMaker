@@ -4,7 +4,7 @@ import {Link} from 'react-router';
 var Footer = React.createClass({
   render: function() {
     return (
-      <footer>
+      <footer className="shadow">
         <div className='container'>
           <div className='row'>
             <div className='col-sm-5'>

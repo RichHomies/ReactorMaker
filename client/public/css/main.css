@@ -7347,7 +7347,17 @@ html {
 }
 body {
   margin-bottom: 220px;
+  background: url(../img/picjumbo.jpg) no-repeat center center fixed;
+  background-size: cover;
   -webkit-font-smoothing: antialiased;
+  z-index: 0;
+}
+.home {
+  color: white;
+  margin-top: 100px;
+}
+.shadow {
+  z-index: 2;
 }
 footer {
   position: absolute;

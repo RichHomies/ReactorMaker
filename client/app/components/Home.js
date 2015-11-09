@@ -38,7 +38,7 @@ var Home = React.createClass({
   },
   render: function() {
     return (
-      <div className='container'>
+      <div className='container home'>
         <div className='row'>
           <h1 className="text-center"><strong>We take Javascript beginners to the next level.</strong></h1>
         </div>
@@ -59,13 +59,9 @@ var Home = React.createClass({
           <form ref='searchForm' className='navbar-form navbar-center text-center animated' onSubmit={this.handleSubmit}>
             <div className='input-group input-group-lg'>
               <input type='text' className='form-control' placeholder='Enter your name' ref='name'/>
-              <span className='input-group-btn'>
-              </span>
             </div>
             <div className='input-group input-group-lg'>
               <input type='text' className='form-control' placeholder='Enter your email' ref='email'/>
-              <span className='input-group-btn'>
-              </span>
             </div>
             <div className='input-group input-group-lg'>
               <input type='text' className='form-control' placeholder='Enter your phone #' ref='phoneNumber'/>
