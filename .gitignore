@@ -1,6 +1,2 @@
 server/config.js
 node_modules
-bower_components/
-client/public/js/vendor.js
-client/public/js/vendor.bundle.js
-client/public/js/bundle.js
