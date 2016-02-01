@@ -5,7 +5,6 @@ var clientSchema = new Schema({
   client : {
     name: String,
     email: String,
-    phoneNumber: String,
     creationDate : { type: Date, default: Date.now }
   }
 });
