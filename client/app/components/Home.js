@@ -44,13 +44,13 @@ var Home = React.createClass({
           <h1 className="text-center"><strong>We take Javascript beginners to the next level.</strong></h1>
         </div>
         <div className='row'>
-          <h2 className='text-center'>ReactorMaker is an 2 week, online program designed to get <strong>you</strong> into Hack Reactor Schools, built by MakerSquare instructional staff.</h2>
+          <h2 className='text-center'>ReactorMaker is an 2 week, online program designed to get <strong>you</strong> into the top Javascript bootcamps, built by bootcamp graduates turned instructional staff.</h2>
         </div>
         <div className='row'>
-          <h2 className='text-center'>Upon completion of our program, you will have the skills necessary to ace the intensive technical interview needed to get into Hack Reactor schools.</h2>
+          <h2 className='text-center'>Upon completion of our program, you will have the skills necessary to ace the intensive technical interview needed to get into the most challenging of bootcamps.</h2>
         </div>
         <div>
-          <h2 className="text-center">Wanna know more? Stay in the loop.</h2>
+          <h2 className="text-center">Enter your name and email to stay in the loop and get <strong>50%</strong> off when the course is released.</h2>
         </div>
         <div className='row'>
           <br></br>
@@ -65,7 +65,6 @@ var Home = React.createClass({
               <input type='text' className='form-control' placeholder='Enter your email' ref='email'/>
             </div>
             <div className='input-group input-group-lg'>
-              <input type='text' className='form-control' placeholder='Enter your phone #' ref='phoneNumber'/>
               <span className='input-group-btn'>
                 <button className='btn btn-default'><span className='glyphicon glyphicon-plus'></span></button>
               </span>
