@@ -5,22 +5,20 @@ var Home = React.createClass({
     e.preventDefault();
     var email = this.refs.email.value.trim();
     var name = this.refs.name.value.trim();
-    var phoneNumber = this.refs.phoneNumber.value.trim();
 
     var data = {
       email: email,
       name: name,
-      phoneNumber : phoneNumber
     };
 
-    if (!email || !name || !phoneNumber) {
+    if (!email || !name) {
       return;
     }
     //TO DO: email regex
-    var productionIP = 'http://52.32.220.126/api/user';
+    var productionIP = 'http://54.186.120.94/api/user';
     $.ajax({
       type: 'POST',
-      url: '/api/user', //put production IP here?
+      url: '/api/user',
       data: data
     })
     .done(function(data) {
@@ -32,7 +30,6 @@ var Home = React.createClass({
     });
     this.refs.email.value = '';
     this.refs.name.value = '';
-    this.refs.phoneNumber.value = '';
     swal("Thank you!", "We will reach out to you soon with more information.", "success")
     return;
 
