@@ -41,10 +41,10 @@ var Home = React.createClass({
           <h1 className="text-center"><strong>We take Javascript beginners to the next level.</strong></h1>
         </div>
         <div className='row'>
-          <h2 className='text-center'>ReactorMaker is a tutoring service designed to get <strong>you</strong> ready for success in any coding bootcamp.</h2>
+          <h2 className='text-center'>ReactorMaker is a tutoring service designed to get <strong>you</strong> ready for success in Hack Reactor or Hack Reactor Remote Beta.</h2>
         </div>
         <div className='row'>
-          <h2 className='text-center'>Upon completion, you will have the skills necessary to ace any bootcamp interview.</h2>
+          <h2 className='text-center'>Upon completion, you will have the skills necessary to not only ace the Hack Reactor interview, but also excel in the program.</h2>
         </div>
         <div>
           <h2 className="text-center">Enter your name and email to be added to our waitlist.</h2>
