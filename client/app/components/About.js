@@ -9,7 +9,7 @@ var About = React.createClass({
         </div>
         <div className="row">
           <h2 className="text-center"><strong>Q: Who teaches ReactorMaker?</strong></h2>
-          <h3 className="text-center">A: ReactorMaker was created by two former bootcamp instructors, <a className="link" href="http://www.joe-n.com" target="_blank">Joe Nayigiziki</a> and <a className="link" href="https://www.linkedin.com/in/zckly" target="_blank">Zachary Lee.</a></h3>
+          <h3 className="text-center">A: ReactorMaker was created by two former bootcamp instructors, <a className="link" href="https://www.linkedin.com/in/josephnayigiziki" target="_blank">Joe Nayigiziki</a> and <a className="link" href="https://www.linkedin.com/in/zckly" target="_blank">Zachary Lee.</a></h3>
         </div>
         <div className="row">
           <h2 className="text-center"><strong>Q: What will ReactorMaker teach me?</strong></h2>
