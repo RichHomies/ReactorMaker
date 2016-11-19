@@ -20,6 +20,7 @@
     "cookie-parser": "^1.4.0",
     "cors": "^2.7.1",
     "express": "^4.13.3",
+    "firebase": "^3.6.1",
     "history": "^1.12.5",
     "mongoose": "^4.1.12",
     "morgan": "^1.6.1",

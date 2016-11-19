@@ -1,17 +1,21 @@
 var mongoose = require('mongoose');
 var clientModel = require('../db/db').clientModel;
 
+var firebase = require('firebase');
+var config = {
+  databaseURL: "https://reactormaker.firebaseio.com",
+};
+
+firebase.initializeApp(config)
+var database = firebase.database()
+
 var saveToDb = function(req, res, next){
   var client = req.body;
-  var newClient = new clientModel({client: client});
-  newClient.save(function(err, client){
-    if(err){
-      console.log('err ' , err);
-      res.status(400).json({status: 'Unsuccessfully saved client contact', err: err});
-    } else {
-      res.status(201).json({status: 'Successfully saved client contact', client: client});
-    }
-  });
+  database.ref('/users/').push({
+    name: client.name,
+    email: client.email
+  })
+  res.status(202);
 }
 
 module.exports = {

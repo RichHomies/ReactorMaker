@@ -1,5 +1,4 @@
 import React from 'react';
-
 var Home = React.createClass({
   handleSubmit: function(e){
     e.preventDefault();
@@ -12,6 +11,7 @@ var Home = React.createClass({
     };
 
     if (!email || !name) {
+      swal("Try again", "Please try again", "error")
       return;
     }
     //TO DO: email regex
@@ -41,13 +41,13 @@ var Home = React.createClass({
           <h1 className="text-center"><strong>We take Javascript beginners to the next level.</strong></h1>
         </div>
         <div className='row'>
-          <h2 className='text-center'>ReactorMaker is an 2 week, online program designed to get <strong>you</strong> into the top Javascript bootcamps, built by bootcamp graduates turned instructional staff.</h2>
+          <h2 className='text-center'>ReactorMaker is a tutoring service designed to get <strong>you</strong> ready for success in any coding bootcamp.</h2>
         </div>
         <div className='row'>
-          <h2 className='text-center'>Upon completion of our program, you will have the skills necessary to ace the intensive technical interview needed to get into the most challenging of bootcamps.</h2>
+          <h2 className='text-center'>Upon completion, you will have the skills necessary to ace any bootcamp interview.</h2>
         </div>
         <div>
-          <h2 className="text-center">Enter your name and email to stay in the loop and get <strong>50%</strong> off when the course is released.</h2>
+          <h2 className="text-center">Enter your name and email to be added to our waitlist.</h2>
         </div>
         <div className='row'>
           <br></br>
@@ -56,10 +56,10 @@ var Home = React.createClass({
         <div className='row'>
           <form ref='searchForm' className='navbar-form navbar-center text-center animated' onSubmit={this.handleSubmit}>
             <div className='input-group input-group-lg'>
-              <input type='text' className='form-control' placeholder='Enter your name' ref='name'/>
+              <input type='text' className='form-control' placeholder='Name' ref='name'/>
             </div>
             <div className='input-group input-group-lg'>
-              <input type='text' className='form-control' placeholder='Enter your email' ref='email'/>
+              <input type='email' className='form-control' placeholder='Email' ref='email'/>
             </div>
             <div className='input-group input-group-lg'>
               <span className='input-group-btn'>
